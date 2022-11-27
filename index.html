@@ -6,225 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Placement Ready</title>
+    <link rel="stylesheet" href="./CSS/loginStyle.css">
     <link rel="icon" href="./Images/icons/favicon.ico">
-    <link rel="stylesheet" href="./CSS/mainstyle.css">
-    <link rel="stylesheet" href="./CSS/login.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css">
 
 </head>
 
 <body>
-    <header>
-        <img src="../Images/icons/android-chrome-192x192.png" alt="" id="logo">
-        <nav>
-            <ul>
-                <li><a href="./HTML/main_companies.html#functionalities">Prepare</a></li>
-                <li><a href="#">Interview Preparation</a></li>
-                <li><a href="./HTML/main_InterviewExp.html#functionalities">Interview Experience</a></li>
-            </ul>
-        </nav>
-        <button class="btn" id="logout-btn">Log out</button>
-    </header>
-    <main>
-        <img src="./Images/icons/android-chrome-512x512.png" alt="">
-        <a href="#"><button class="btn">Begin Preparation</button></a>
-    </main>
-    <section>
-        <div id="functionalities">
-            <ul>
-                <a href="./HTML/main_companies.html#functionalities" class="active">
-                    <li class="active">Companies</li>
-                </a>
-                <a href="./HTML/main_programming.html#functionalities">
-                    <li>Programming</li>
-                </a>
-                <a href="./HTML/main_aptitude.html#functionalities">
-                    <li>Aptitude</li>
-                </a>
-                <a href="#">
-                    <li>Interview Preparation</li>
-                </a>
-                <a href="./HTML/main_InterviewExp.html#functionalities">
-                    <li>Interview Experience</li>
-                </a>
-                <a href="./HTML/main_syllabus.html#functionalities">
-                    <li>Syllabus</li>
-                </a>
-            </ul>
-        </div>
-        <aside class="functioanality_section">
-            <a href="#" class="com-link">
-                <div class="com-div ">Infosys</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">IBM</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Capgemini</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Deloitte</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">TCS</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">InfyTQ</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Wipro</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Cognizant</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Google</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Microsoft</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Amazon</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">TCS Ninja</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Goldman Sachs</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">CoCubes</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Hackerrank</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Oracle</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Qualcomm</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">VMware</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Reliance Jio</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Accenture</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">Mindtree</div>
-            </a>
-            <a href="#" class="com-link">
-                <div class="com-div">TCS Digital</div>
-            </a>
-        </aside>
-    </section>
-    <div id="content-container">
-        <div id="form-conatainer">
-            <div id="form-head-con">
-                <h2 id="form-header">Login</h2>
+    <div id="container">
+        <div id="form-box">
+            <div id="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Sign In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Sign Up</button>
             </div>
-            <div id="form-content">
-                <div id="form-inner-con">
-                    <input type="text" id="firstname" placeholder="First Name" class="login-input">
-                    <input type="text" id="lastname" placeholder="Last Name" class="login-input">
-                    <input type="email" name="" id="email" placeholder="Email" class="login-input">
-                    <input type="password" name="" id="password" placeholder="Password" class="login-input">
-                    <i class="fa fa-eye" aria-hidden="true" id="togglePassword"></i>
-                    <!-- <button id="signinwithgoogle">
-                        <img src="./Images/google logo.png" alt="">
-                        Login with your google
-                    </button> -->
-                    <div id="btn-container">
-                        <button id="login">Sign in</button>
-                        <button id="register">Sign up</button>
-                    </div>
-                </div>
+            <div class="input-box" id="signin">
+                <input type="text" name="email" id="email" class="login-input" placeholder="Enter email">
+                <input type="password" name="password" id="password" class="login-input" placeholder="Enter password">
+                <button id="login">Sign in</button>
+            </div>
+            <div class="input-box" id="signup">
+                <input type="text" name="fname" id="fname" class="login-input" placeholder="First name">
+                <input type="text" name="lname" id="lname" class="login-input" placeholder="Last name">
+                <input type="text" name="mobile" id="mobile" class="login-input" placeholder="Contact no.">
+                <input type="text" name="email" id="regemail" class="login-input" placeholder="Enter email">
+                <input type="password" name="password" id="regpassword" class="login-input" placeholder="Enter password">
+                <button id="register">Sign Up</button>
             </div>
         </div>
     </div>
-    <footer>
-        <div id="info">
-            <div>
-                <img src="./Images/icons/android-chrome-192x192.png" alt="">
-                <h2>Placement Ready</h2>
-            </div>
-
-            <p>We help students to prepare for placements with the best study material, Sectional Statistics for better focus and Success stories & tips on Placement Ready.</p>
-        </div>
-        <div id="links">
-            <table>
-                <tr>
-                    <th>Support</th>
-                    <th>Companies</th>
-                    <th></th>
-                    <th>Get In Touch</th>
-                </tr>
-                <tr>
-                    <td><a href="./HTML/contactus.html" target="_blank">Conatct Us</a></td>
-                    <td><a href="./HTML/Accenture.html">Accenture</a></td>
-                    <td><a href="#">Microsoft</a></td>
-                    <td><a href="#">lokesh.gla_cs20@gla.ac.in</a></td>
-                </tr>
-                <tr>
-                    <td><a href="#">About Us</a></td>
-                    <td><a href="./HTML/CognizantSyllabus.html">Cognizant</a></td>
-                    <td><a href="./HTML/TCS.html">TCS</a></td>
-                    <td><a href="#">+91 8791937610</a></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><a href="./HTML/Infosys.html">Infosys</a></td>
-                    <td><a href="./HTML/MindTree.html">Mind Tree</a></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><a href="./HTML/VMwareSyllabus.html">VMware</a></td>
-                    <td><a href="./HTML/OracleSyllabus.html">Oracle</a></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><a href="./HTML/CapgeminiSyllabus.html">Capgemini</a></td>
-                    <td><a href="./HTML/TCS.html">TCS Ninja</a></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><a href="./HTML/DeloitteSyllabus.html">Deloitte</a></td>
-                    <td><a href="./HTML/IBM.html">IBM</a></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><a href="./HTML/WiproSyllabus.html">Wipro</a></td>
-                    <td><a href="#">Amazon</a></td>
-                    <td></td>
-                </tr>
-            </table>
-            <div id="social">
-                <div>
-                    <a class="butn" href="https://www.linkedin.com/in/lokeshsharma1703/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a class="butn" href="https://github.com/Lokeshsharma1703" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                    <a class="butn" href="https://www.instagram.com/mr.tomar81/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    <a class="butn" href="https://www.facebook.com/mr.tomar81" target="_blank"><i class="fa fa-facebook-f" aria-hidden="true"></i></a>
-                    <a class="butn" href="https://twitter.com/T_o_m_a_r" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="./JavaScript/passwordToggle.js"></script>
+    <script src="./JavaScript/switchPages.js"></script>
     <script type="module" src="./JavaScript/firebase.js"></script>
-    <script>
-        var btn = document.getElementById('logout-btn');
-        btn.addEventListener('click', (e) => {
-            window.location.assign('./index.html');
-        })
-    </script>
 </body>
 
 </html>

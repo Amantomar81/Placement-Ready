@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+import { getDatabase, set, get, ref, update } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,10 +24,12 @@ const auth = getAuth();
 
 var signup = document.getElementById('register');
 signup.addEventListener('click', (e) => {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    let fname = document.getElementById('firstname').value;
-    let lname = document.getElementById('lastname').value;
+    var email = document.getElementById('regemail').value;
+    var password = document.getElementById('regpassword').value;
+    let fname = document.getElementById('fname').value;
+    let lname = document.getElementById('lname').value;
+    let mobile = document.getElementById('mobile').value;
+    console.log(mobile);
 
 
     if (validate_email(email) == false) {
@@ -52,6 +54,9 @@ signup.addEventListener('click', (e) => {
     if (validate_fields(lname) == false) {
         return;
     }
+    if (validate_mobile(mobile) == false) {
+        return;
+    }
 
 
 
@@ -62,8 +67,14 @@ signup.addEventListener('click', (e) => {
             email: email,
             fname: fname,
             lname: lname,
+            conatct_no: mobile,
             last_login: Date.now()
         });
+        document.getElementById('regemail').value = "";
+        document.getElementById('regpassword').value = "";
+        document.getElementById('fname').value = "";
+        document.getElementById('lname').value = "";
+        document.getElementById('mobile').value = "";
 
         alert('user created');
     }).catch((error) => {
@@ -71,6 +82,8 @@ signup.addEventListener('click', (e) => {
         const message = error.message;
         alert(message);
     })
+
+
 })
 
 
@@ -86,9 +99,11 @@ login.addEventListener('click', (e) => {
             last_login: Date.now()
         })
 
-        var login_container = document.getElementById('content-container');
-        login_container.style.left = `2500px`;
+        // var login_container = document.getElementById('content-container');
+        // login_container.style.left = `2500px`;
         window.location.assign('./HTML/main_companies.html');
+        document.getElementById('email').value = "";
+        document.getElementById('password').value = "";
         alert('logged in successfully');
 
 
@@ -97,32 +112,34 @@ login.addEventListener('click', (e) => {
         const errMessage = error.message;
         alert(errMessage);
     })
-})
 
+});
 
-
-const user = auth.currentUser;
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        user.perventDefault();
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
+        // ...
     } else {
-
+        // User is signed out
+        // ...
     }
 });
 
 
-var logout = document.getElementById('logout');
-logout.addEventListener('click', (e) => {
-    signOut(auth).then(() => {
-        window.location.assign('../index.html');
-        alert('user logged out');
-    }).catch((error) => {
-        const errCode = error.code;
-        const errMessage = error.message;
-        alert(errMessage);
-    });
-});
+
+// var logout = document.getElementById('logout');
+// logout.addEventListener('click', (e) => {
+//     signOut(auth).then(() => {
+//         window.location.assign('../index.html');
+//         alert('user logged out');
+//     }).catch((error) => {
+//         const errCode = error.code;
+//         const errMessage = error.message;
+//         alert(errMessage);
+//     });
+// });
 
 
 
@@ -164,6 +181,24 @@ function validate_fields(field) {
     }
 }
 
+function validate_mobile(mobile) {
+    if (mobile == null) {
+        alert('contact no. cannot be empty');
+        return;
+    }
+    if (mobile.length <= 0) {
+        alert('contact no. cannot be empty');
+        return;
+    } else {
+        let expression = /^(\+\d{1,3}[- ]?)?\d{10}$/;
+        if (expression.test(mobile) == true) {
+            return true;
+        } else {
+            alert('invalid contact no.');
+            return false;
+        }
+    }
+}
 
 // var signinGoogle = document.getElementById('signinwithgoogle');
 // signinGoogle.addEventListener('click', (e) => {
