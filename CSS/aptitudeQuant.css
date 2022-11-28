@@ -450,3 +450,36 @@ footer #links #social div .butn:hover {
         transform: rotate(360deg);
     }
 }
+
+.heading {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+main #faqs {
+    margin-top: 3rem;
+    padding: 1.5rem;
+}
+
+main #faqs .ques {
+    margin: 2rem 3rem 0 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid black;
+}
+
+main #faqs .ques ul {
+    margin-left: 1rem;
+}
+
+main #faqs .ques p {
+    margin: 1rem 0;
+}
+
+main #faqs .ques p a {
+    text-decoration: none;
+}
+
+main #faqs .ques:last-child {
+    border: none;
+}

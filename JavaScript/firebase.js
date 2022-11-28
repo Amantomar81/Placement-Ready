@@ -162,12 +162,12 @@ function validate_password(password) {
 
 function validate_fields(field) {
     if (field == null) {
-        alert('First name cannot be empty');
+        alert('name cannot be empty');
         return false;
     }
 
     if (field.length <= 0) {
-        alert('First name cannot be empty');
+        alert('name cannot be empty');
         return false;
     } else {
         // return true;
